@@ -3,8 +3,6 @@
 #ifndef COMPLEX
 #define COMPLEX
 
-#define NODISCARD [[nodiscard]]
-
 class complex {
 	float real;
 	float img;
