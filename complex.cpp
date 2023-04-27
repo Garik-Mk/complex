@@ -3,35 +3,28 @@
 #include "complex.h"
 
 
-complex::complex()
+complex::complex() noexcept
 	: real{ 0 }, img{ 0 } {}
 
-complex::complex(float real, float img) noexcept {
-	this->real = real;
-	this->img = img;
-}
+complex::complex(float real, float img) noexcept
+	:real{ real }, img{ img } {}
 
-complex::complex(float real) noexcept 
-	: img{ 0 } {
-	this->real = real;
-}
+complex::complex(float real) noexcept
+	: real{ real }, img{ 0 } {}
 
-complex::complex(complex& other) noexcept {
-	this->real = other.get_real();
-	this->img = other.get_img();
-}
+complex::complex(complex& other) noexcept
+	: real{ other.get_real() }, img{ other.get_img()} {}
 
-complex::complex(complex const& other) noexcept {
-	this->real = other.get_real();
-	this->img = other.get_img();
-}
+complex::complex(const complex& other) noexcept
+	: real{ other.get_real() }, img{ other.get_img() } {}
 
-void print(complex& number) noexcept {
-	std::cout << number.get_real();
-	if (number.get_img() > 0)
-		std::cout << "+";
-	else if (number.get_img() == 0) return;
-	std::cout << number.get_img() << "i\n";
+std::ostream& operator<<(std::ostream& os, const complex& number) {
+	os << number.real;
+	if (number.img > 0)
+		os << "+";
+	else if (number.img == 0) return os;
+	os << number.img << "i";
+	return os;
 }
 
 float complex::get_real() const noexcept {
@@ -72,7 +65,7 @@ complex& complex::operator-=(complex& other) {
 
 complex complex::operator*(complex& other) const {
 	float real = this->real * other.get_real() - this->img * other.get_img();
-	float img = this->real * other.get_real() + this->img * other.get_img();
+	float img = this->img * other.get_real() + this->real * other.get_img();
 	return complex(real, img);
 }
 

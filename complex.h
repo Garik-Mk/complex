@@ -1,7 +1,7 @@
 #include <iostream>
 
-#ifndef COMPLEX
-#define COMPLEX
+#ifndef COMPLEX_H
+#define COMPLEX_H
 
 class complex {
 	float real;
@@ -18,7 +18,7 @@ public:
 
 	complex(complex const &other) noexcept;
 
-	friend void print(complex& number) noexcept;
+	friend std::ostream& operator<<(std::ostream& os, const complex& number);
 
 	float get_real() const noexcept;
 
@@ -44,8 +44,8 @@ public:
 
 	complex operator/(const complex& other) const;
 
-	float modul() const noexcept;
+	float modul() const noexcept; // TODO name may be changed
 };
 
-#endif // !COMPLEX
+#endif // !COMPLEX_H
 

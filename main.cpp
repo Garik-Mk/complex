@@ -8,6 +8,6 @@ int main()
     complex b(4, -1.7);
     complex c;
     c = a / b;
-    print(c);
+    std::cout << c;
 }
 
