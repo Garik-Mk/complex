@@ -53,12 +53,14 @@ complex complex::operator-(complex const &other) const {
 	return *this - _new;
 }
 
-void complex::operator+=(complex& other) {
+complex& complex::operator+=(complex& other) {
 	*this = *this + other;
+	return *this;
 }
 
-void complex::operator-=(complex& other) {
+complex& complex::operator-=(complex& other) {
 	*this = *this - other;
+	return *this;
 }
 
 complex complex::operator*(complex& other) const {

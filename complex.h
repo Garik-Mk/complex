@@ -15,7 +15,7 @@ public:
 
 	explicit complex(float real, float img) noexcept;
 
-	complex(complex& other) noexcept;
+	complex(complex &other) noexcept;
 
 	complex(complex const &other) noexcept;
 
@@ -33,9 +33,9 @@ public:
 
 	complex operator-(complex const &other) const;
 
-	void operator+=(complex& other);
+	complex& operator+=(complex& other);
 
-	void operator-=(complex& other);
+	complex& operator-=(complex& other);
 
 	complex operator*(complex& other) const;
 
