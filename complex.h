@@ -29,9 +29,9 @@ public:
 
 	complex operator-(complex& other) const;
 
-	complex operator+(complex const &other) const;
+	complex operator+(const complex& other) const;
 
-	complex operator-(complex const &other) const;
+	complex operator-(const complex& other) const;
 
 	complex& operator+=(complex& other);
 
@@ -41,9 +41,9 @@ public:
 
 	complex operator/(complex& other) const;
 
-	complex operator*(complex const &other) const;
+	complex operator*(const complex& other) const;
 
-	complex operator/(complex const &other) const;
+	complex operator/(const complex& other) const;
 };
 
 #endif // !COMPLEX

@@ -34,21 +34,19 @@ float complex::get_img() const noexcept {
 }
 
 complex complex::operator+(complex& other) const{
-	complex res(this->real + other.get_real(), this->img + other.get_img());
-	return res;
+	return complex(this->real + other.get_real(), this->img + other.get_img());
 }
 
 complex complex::operator-(complex& other) const {
-	complex res(this->real - other.get_real(), this->img - other.get_img());
-	return res;
+	return complex(this->real - other.get_real(), this->img - other.get_img());
 }
 
-complex complex::operator+(complex const &other) const {
+complex complex::operator+(const complex& other) const {
 	complex _new(other.get_real(), other.get_img());
 	return *this + _new;
 }
 
-complex complex::operator-(complex const &other) const {
+complex complex::operator-(const complex& other) const {
 	complex _new(other.get_real(), other.get_img());
 	return *this - _new;
 }
@@ -66,8 +64,7 @@ complex& complex::operator-=(complex& other) {
 complex complex::operator*(complex& other) const {
 	float real = this->real * other.get_real() - this->img * other.get_img();
 	float img = this->real * other.get_real() + this->img * other.get_img();
-	complex res(real, img);
-	return res;
+	return complex(real, img);
 }
 
 complex complex::operator/(complex& other) const {
@@ -78,16 +75,15 @@ complex complex::operator/(complex& other) const {
 
 	float real = (a1 * a2 + b1 * b2) / (a2 * a2 + b2 * b2);
 	float img = (a1 * a2 - b1 * b2) / (a2 * a2 + b2 * b2);
-	complex res(real, img);
-	return res;
+	return complex(real, img);
 }
 
-complex complex::operator*(complex const& other) const {
+complex complex::operator*(const complex& other) const {
 	complex _new(other.get_real(), other.get_img());
 	return *this * _new;
 }
 
-complex complex::operator/(complex const& other) const {
+complex complex::operator/(const complex& other) const {
 	complex _new(other.get_real(), other.get_img());
 	return *this / _new;
 }
