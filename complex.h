@@ -8,10 +8,11 @@ class complex {
 	float img;
 
 public:
-	complex() noexcept
-		: real{ 0 }, img{ 0 } {}
+	complex() noexcept;
 
 	explicit complex(float real, float img) noexcept;
+
+	explicit complex(float real) noexcept;
 
 	complex(complex &other) noexcept;
 

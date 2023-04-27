@@ -3,9 +3,17 @@
 #include "complex.h"
 
 
+complex::complex()
+	: real{ 0 }, img{ 0 } {}
+
 complex::complex(float real, float img) noexcept {
 	this->real = real;
 	this->img = img;
+}
+
+complex::complex(float real) noexcept 
+	: img{ 0 } {
+	this->real = real;
 }
 
 complex::complex(complex& other) noexcept {
