@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 #include "complex.h"
 
 
@@ -86,4 +87,8 @@ complex complex::operator*(const complex& other) const {
 complex complex::operator/(const complex& other) const {
 	complex _new(other.get_real(), other.get_img());
 	return *this / _new;
+}
+
+float complex::modul() const noexcept {
+	return sqrt(pow(this->real, 2) + pow(this->img, 2));
 }

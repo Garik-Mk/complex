@@ -42,6 +42,8 @@ public:
 	complex operator*(const complex& other) const;
 
 	complex operator/(const complex& other) const;
+
+	float modul() const noexcept;
 };
 
 #endif // !COMPLEX
